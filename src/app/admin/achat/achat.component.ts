@@ -19,6 +19,7 @@ export class AchatComponent implements OnInit {
     return this.achatService.achatList;
   }
   public save(){
+    console.log(this.achat)
     this.achatService.save();
   }
   public validateAchat(){

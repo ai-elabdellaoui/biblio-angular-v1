@@ -16,8 +16,8 @@ export class AchatsComponent implements OnInit {
   }
 
 
-public  get achatList() : Array<Achat>{
- return    this.achatService.achatList;
+   get achatList() : Array<Achat>{
+   return this.achatService.achatList;
   }
 }
 

@@ -21,7 +21,7 @@ export class AchatDetailsComponent implements OnInit {
   public saveAchatDetail(){
     this.achatService.saveAchatDetail();
   }
-  public  get achat (){
+    get achat (){
    return  this.achatService.achat;
   }
 

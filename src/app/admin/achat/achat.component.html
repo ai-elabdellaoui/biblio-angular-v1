@@ -11,15 +11,15 @@
     <input type="text" class="form-control" [(ngModel)]="achat.ref">
 
     <label>Fournesseur</label>
-    <input type="text" class="form-control" [(ngModel)]="achat.founisseur">
+    <input type="text" class="form-control" [(ngModel)]="achat.founisseur.reference">
     <label>bibliothèque</label>
-    <input type="text" class="form-control" [(ngModel)]="achat.bibliotheque">
+    <input type="text" class="form-control" [(ngModel)]="achat.bibliotheque.nom">
 
     <app-achat-details></app-achat-details>
   </div>
 
   <div class="card-footer">
-    <button class="btn btn-success btn-block" (click)="save()" [disabled]="!validateAchat()">save</button>
+    <button class="btn btn-success btn-block" (click)="save()" >save</button>
   </div> </div>
 
 

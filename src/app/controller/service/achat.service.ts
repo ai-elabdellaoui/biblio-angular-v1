@@ -15,26 +15,25 @@ export class AchatService {
   }
 
   get achat(): Achat {
-    if (this.achat == null) {
-      this.achat = new Achat();
+    if (this._achat == null) {
+      this._achat = new Achat();
     }
     return this._achat;
   }
 
   public save() {
     this.achatList.push(this.cloneAchat(this.achat));
-    this.achatList = null;
+    this.achat= null;
   }
 
   public validateAchat(): boolean {
-    return this.achat.ref != null && this.achat.bibliotheque != null && this.achat.founisseur != null && this.achat.achatDetails.length > 0;
-
+    return this.achat.ref != null && this.achat.bibliotheque.nom != null && this.achat.founisseur.reference != null && this.achat.achatDetails.length > 0;
   }
 
   public saveAchatDetail() {
     this.achatDetailList.push(this.cloneAchatDetail(this.achatDatail));
     this.achat.totale+=this.achatDatail.qte*this.achatDatail.prixUnitaire;
-    this.achatDatail=null;
+    this._achatDatail=null;
   }
 
   set achat(value: Achat) {
@@ -53,8 +52,8 @@ export class AchatService {
   }
 
   get achatList(): Array<Achat> {
-    if (this.achatList == null) {
-      this.achatList = new Array<Achat>();
+    if (this._achatList == null) {
+      this._achatList = new Array<Achat>();
     }
     return this._achatList;
   }
@@ -64,8 +63,8 @@ export class AchatService {
   }
 
   get achatDetailList(): Array<Achatdtail> {
-    if (this.achatDetailList == null) {
-      this.achatDetailList = new Array<Achatdtail>();
+    if (this._achatDetailList == null) {
+      this._achatDetailList = new Array<Achatdtail>();
     }
     return this._achatDetailList;
   }
@@ -79,13 +78,15 @@ export class AchatService {
     myclone.id = achat.id;
     myclone.ref = achat.ref;
     myclone.totale = achat.totale;
+    myclone.founisseur=achat.founisseur;
+    myclone.bibliotheque=achat.bibliotheque;
     return myclone;
   }
 
   private cloneAchatDetail(achatDatail: Achatdtail) {
    const myclone1 =new Achatdtail();
-    myclone1.livre.isbn=achatDatail.livre.isbn;
-    myclone1.livre.titre=achatDatail.livre.titre;
+    myclone1.livre=achatDatail.livre;
+    myclone1.achat= this.achat;
     myclone1.qte=achatDatail.qte;
     myclone1.prixUnitaire=achatDatail.prixUnitaire;
 

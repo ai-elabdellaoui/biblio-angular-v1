@@ -9,6 +9,8 @@ export class Achatdtail {
   constructor() {
     this.qte=0;
     this.prixUnitaire=0;
+    this.livre= new Livre();
+    this.achat = new Achat();
   }
 
 }
