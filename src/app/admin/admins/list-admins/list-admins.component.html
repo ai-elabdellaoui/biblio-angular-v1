@@ -1,0 +1,27 @@
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Cin</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Email</th>
+    <th scope="col">Date Contrat</th>
+    <th scope="col">Tel</th>
+    <th scope="col">l'adresse</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let admin of listadmin ">
+    <td>{{ admin.cin }}</td>
+    <td>{{ admin.nom }}</td>
+    <td>{{ admin.prenom }}</td>
+    <td>{{ admin.email }}</td>
+    <td>{{ admin.dateContrat }}</td>
+    <td>{{ admin.tel }}</td>
+    <td>{{ admin.adresse }}</td>
+  </tr>
+  </tbody>
+</table>
+

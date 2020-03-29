@@ -1,0 +1,23 @@
+<div class="jumbotron-fluid text-center bg-dark"><h1 class="text-white">Header</h1></div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="list-group">
+      <button type="button" class="list-group-item list-group-item-action active">
+        Admin
+      </button>
+      <a routerLink="login"  class="list-group-item list-group-item-action" >Login</a>
+      <a routerLink="admins"  class="list-group-item list-group-item-action" >Admins</a>
+      <a routerLink="achat"  class="list-group-item list-group-item-action" >Achat</a>
+      <a routerLink="agent"   class="list-group-item list-group-item-action" >Agent</a>
+      <a routerLink="adherent"  class="list-group-item list-group-item-action" >Adherent</a>
+      <a routerLink="biblio"  class="list-group-item list-group-item-action" >Biblio</a>
+      <a routerLink="emprunt"   class="list-group-item list-group-item-action" >Emprunt</a>
+    </div>
+  </div>
+
+  <div class="col-md-10">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+

@@ -1,0 +1,32 @@
+<div class="row">
+
+  <div class="col-md-6">
+
+<div class="card">
+  <div class="card-header">
+    Achat
+  </div>
+  <div class="card-body">
+    <label>reference</label>
+    <input type="text" class="form-control" [(ngModel)]="achat.ref">
+
+    <label>Fournesseur</label>
+    <input type="text" class="form-control" [(ngModel)]="achat.founisseur">
+    <label>bibliothèque</label>
+    <input type="text" class="form-control" [(ngModel)]="achat.bibliotheque">
+
+    <app-achat-details></app-achat-details>
+  </div>
+
+  <div class="card-footer">
+    <button class="btn btn-success btn-block" (click)="save()" [disabled]="!validateAchat()">save</button>
+  </div> </div>
+
+
+
+</div>
+  <div class="col-md-6">
+    <app-achats></app-achats>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+
+<div class="card">
+  <div class="card-header">Creation de l'adherent</div>
+  <div class="card-body">
+    <label>Cin</label>
+    <input type="text" class="form-control" [(ngModel)]="admin.cin">
+    <label>Nom</label>
+    <input type="text" class="form-control" [(ngModel)]="admin.nom">
+    <label>Prenom</label>
+    <input type="text" class="form-control" [(ngModel)]="admin.prenom">
+    <label>Email</label>
+    <input type="text" class="form-control" [(ngModel)]="admin.email">
+    <label>Mot de passe</label>
+    <input type="password" class="form-control" [(ngModel)]="admin.password">
+    <label>Date Contrat</label>
+    <input type="date" class="form-control" [(ngModel)]="admin.dateContrat">
+    <label>Tel</label>
+    <input type="text" class="form-control" [(ngModel)]="admin.tel">
+    <label>Adresse</label>
+    <input type="text" class="form-control" [(ngModel)]="admin.adresse">
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-info btn-block" (click)="addadmin()">Save</button>
+  </div>
+</div>
+
