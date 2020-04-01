@@ -1,13 +1,31 @@
 import { Injectable } from '@angular/core';
+import {Achat} from "../model/achat";
+import {Achatdetail} from "../model/achatdetail";
+import {HttpClient} from "@angular/common/http";
+@Injectable({
+  providedIn: 'root'
 })
 export class AchatService {
   private _achat: Achat;
-  private _achatdetail: Achatdetail ;
+  private _achatDetail: Achatdetail;
   private  _achatList :Array<Achat>;
 
 
   constructor(private  http : HttpClient) {
   }
+
+  get achatDetail(): Achatdetail {
+    if(this._achatDetail == null){
+      this._achatDetail = new Achatdetail();
+    }
+    return this._achatDetail;
+  }
+
+  set achatDetail(value: Achatdetail) {
+    this._achatDetail = value;
+  }
+
+
 
   get achat(): Achat {
     if (this._achat == null) {
@@ -18,7 +36,7 @@ export class AchatService {
 
   public save() {
     console.log(this.achat);
-    console .log(this._achatdetail);
+    console .log(this._achatDetail);
     this.http.post<number>('http://localhost:8090/biblio/achat/', this.achat).subscribe(
       data => {
         if (data > 0) {
@@ -91,28 +109,19 @@ public  deleteByRef(achat : Achat){
   }
 
   public saveAchatDetail() {
-    console.log(this.achatdetail);
+    console.log(this.achatDetail);
     console.log(this.achat.achatDetail);
     console.log(this.achat)
-    this.achat.achatDetail.push(this.cloneAchatDetail(this.achatdetail));
-    this.achat.totale+=this.achatDatail.qte*this.achatDatail.prixUnitaire;
-    this._achatdetail=null;
+    this.achat.achatDetail.push(this.cloneAchatDetail(this.achatDetail));
+    this.achat.totale+=this.achatDetail.qte*this.achatDetail.prixUnitaire;
+    this._achatDetail=null;
   }
 
   set achat(value: Achat) {
     this._achat = value;
   }
 
-  get achatdetail(): Achatdetail {
-    if (this._achatdetail == null) {
-      this._achatdetail = new Achatdetail();
-    }
-    return this._achatdetail;
-  }
 
-  set achatDatail(value: Achatdetail) {
-    this._achatdetail = value;
-  }
 
   get achatList(): Array<Achat> {
     if (this._achatList == null) {

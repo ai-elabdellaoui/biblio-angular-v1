@@ -26,24 +26,24 @@
             <div class="row">
               <div class="col-md-6">
                 <label>ISBN</label>
-                <input type="text" class="form-control" [(ngModel)]="achatdetail.livre.isbn">
+                <input type="text" class="form-control" [(ngModel)]="achatDetail.livre.isbn" >
               </div>
               <div class="col-md-6">
                 <label>Titre</label>
-                <input type="text" class="form-control" [(ngModel)]="achatdetail.livre.titre">
+                <input type="text" class="form-control" [(ngModel)]="achatDetail.livre.titre">
               </div>
               <div class="col-md-6">
                 <label>qte</label>
-                <input type="number" class="form-control" [(ngModel)]="achatdetail.qte">
+                <input type="number" class="form-control" [(ngModel)]="achatDetail.qte" >
               </div>
               <div class="col-md-6">
                 <label>prixUnitaire</label>
 
-                <input type="number" class="form-control" [(ngModel)]="achatdetail.prixUnitaire">
+                <input type="number" class="form-control" [(ngModel)]="achatDetail.prixUnitaire">
               </div>
             </div>
           </div>
-          {{achatdetail.prixUnitaire}}
+
           <div class="card-footer">
               <button class="btn btn-info btn-block" (click)="saveAchatDetail()" >Add</button>
           </div>
@@ -70,7 +70,6 @@
         </table>
 
         Total : {{achat.totale}}
-
       </div>
 
 

@@ -9,7 +9,6 @@ import {Achat} from '../../../controller/model/achat';
   styleUrls: ['./create-achat.component.css']
 })
 export class CreateAchatComponent implements OnInit {
-
   constructor(private achatService: AchatService) {
   }
 
@@ -20,15 +19,15 @@ export class CreateAchatComponent implements OnInit {
     return this.achatService.achat;
   }
 
-  get achatdetail(): Achatdetail {
-    return this.achatService.achatDatail;
+  get achatDetail() {
+    return this.achatService.achatDetail;
   }
+
 
   get achatList(): Array<Achat> {
     return this.achatService.achatList;
-
-
   }
+
 
   public saveAchatDetail() {
     this.achatService.saveAchatDetail();
