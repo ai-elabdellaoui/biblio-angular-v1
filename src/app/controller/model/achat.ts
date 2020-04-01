@@ -1,20 +1,20 @@
 import {Fournisseur} from './fournisseur';
-import {Achatdtail} from './achatdtail';
+import {Achatdetail} from './achatdetail';
 import {Biblio} from './biblio';
 
 export class Achat {
 public  id : number ;
 public ref: string;
 public totale:number;
-public achatDetails:Array<Achatdtail>;
-public founisseur:Fournisseur;
+public achatDetail:Array<Achatdetail>;
+public fournisseur:Fournisseur;
 public bibliotheque:Biblio;
 
 
   constructor() {
     this.totale=0;
     this.bibliotheque = new Biblio();
-    this.achatDetails = new Array<Achatdtail>();
-    this.founisseur = new Fournisseur();
+    this.achatDetail = new Array<Achatdetail>();
+    this.fournisseur= new Fournisseur();
   }
 }

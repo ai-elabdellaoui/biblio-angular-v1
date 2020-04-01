@@ -14,10 +14,10 @@ import { AdherentComponent } from './admin/adherent/adherent.component';
 import { BiblioComponent } from './admin/biblio/biblio.component';
 import { EmpruntComponent } from './admin/emprunt/emprunt.component';
 import { RouterModule, Routes } from '@angular/router';
-import { AchatsComponent } from './admin/achat/List-achats/achats.component';
-import { AchatDetailsComponent } from './admin/achat/achat-details/achat-details.component';
 import { CreateAdminComponent } from './admin/admins/create-admin/create-admin.component';
 import { ListAdminsComponent } from './admin/admins/list-admins/list-admins.component';
+import { CreateAchatComponent } from './admin/achat/create-achat/create-achat.component';
+import { ListAchatComponent } from './admin/achat/list-achat/list-achat.component';
 
 const biblioRoutes : Routes = [
   {path:"admin",component : AdminComponent},
@@ -39,11 +39,12 @@ const biblioRoutes : Routes = [
     AdherentComponent,
     BiblioComponent,
     EmpruntComponent,
-    AchatsComponent,
-    AchatDetailsComponent,
+
     AdminsComponent,
     CreateAdminComponent,
-    ListAdminsComponent
+    ListAdminsComponent,
+    CreateAchatComponent,
+    ListAchatComponent
 
   ],
   imports: [
@@ -51,6 +52,7 @@ const biblioRoutes : Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule,
+    HttpClientModule,
     RouterModule.forRoot(
       biblioRoutes
     )

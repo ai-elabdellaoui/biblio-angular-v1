@@ -10,8 +10,9 @@ import {Admin} from '../../../controller/model/admin.model';
 export class ListAdminsComponent implements OnInit {
 
   constructor(private  adminService: AdminService) { }
-
+  searchInput:string = "";
   ngOnInit(): void {
+    this.findAll();
   }
 
 
@@ -19,4 +20,16 @@ export class ListAdminsComponent implements OnInit {
 
     return this.adminService.listadmin;
   }
+
+  get admin(): Admin {
+    return this.adminService.admin;
+
+}
+ public search(){
+     this.adminService.search(this.searchInput);
+}
+public findAll(){
+    this.adminService.findAll();
+}
+
 }

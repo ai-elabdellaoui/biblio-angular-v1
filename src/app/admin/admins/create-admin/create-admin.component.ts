@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminService} from '../../../controller/service/admin.service';
+import {Admin} from '../../../controller/model/admin.model';
 
 @Component({
   selector: 'app-create-admin',
@@ -16,9 +17,9 @@ export class CreateAdminComponent implements OnInit {
     return this.adminService.admin;
   }
 
-  addadmin() {
-  this.adminService.addAdmin();
-  }
+ public  save(){
+    this.adminService.save();
+ }
 
 
 }

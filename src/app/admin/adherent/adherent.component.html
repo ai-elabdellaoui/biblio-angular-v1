@@ -1,1 +1,44 @@
-<p>adherent works!</p>
+
+
+<div class="row">
+
+      <div class="co-md-6">
+        <div>
+          <input type="text"  [(ngModel)]="searchInput" (input)="search()" placeholder="search" class="form-control">
+
+        </div>
+        <table class="table">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">Cin</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date d'inscreption</th>
+            <th scope="col">Tel</th>
+            <th scope="col">Profession</th>
+            <th scope="col">Historique</th>
+
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let adhrent of listAdherent">
+            <td>{{ adhrent.cin }}</td>
+            <td>{{ adhrent.nom }}</td>
+            <td>{{ adhrent.prenom }}</td>
+            <td>{{ adhrent.email }}</td>
+            <td>{{ adhrent.dateInscription }}</td>
+            <td>{{ adhrent.tel }}</td>
+            <td>{{ adhrent.typeAdherent.profession}}</td>
+            <td><button class="btn btn-info ">click</button></td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+  <div class="col-md-6"></div>
+
+
+</div>
+

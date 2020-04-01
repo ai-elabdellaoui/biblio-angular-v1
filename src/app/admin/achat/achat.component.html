@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-6">
+    <app-create-achat></app-create-achat>
+  </div>
+<div class="col-md-6">
+<div>
+  <input type="text"  [(ngModel)]="searchInput" (input)="search()" placeholder="search">
+
+</div>
+
+<div class="card">
+  <div class="card-header"> listes des achats</div>
+  <div class="card-body">
+    <table class="table table-hover table-striped">
+      <thead>
+      <th>id</th>
+      <th>ref</th>
+      <th>Totale</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let a of achatList">
+        <td>{{a.id}}</td>
+        <td>{{a.ref}}</td>
+        <td>{{a.totale}}</td>
+        <td><button btn btn-sm  (click)="deleteByRef(a)"><i class="fa fa-minus"></i></button>
+          <button btn btn-danger (click)="findByAchatRef(a)"><i class="fa fa-plus"></i></button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<div class="card">
+  <div class="card-header"> Achat Details</div>
+  <div class="card-body">
+    <table class="table table-hover table-striped">
+      <thead>
+      <th>isbn</th>
+      <th>titre</th>
+      <th>qte</th>
+      <th>prixUnitaire</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let ad of  achat.achatDetail">
+        <td>{{ad.livre.isbn}}</td>
+        <td>{{ad.livre.titre}}</td>
+        <td>{{ad.qte}}</td>
+        <td>{{ad.prixUnitaire}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</div>
+
+</div>

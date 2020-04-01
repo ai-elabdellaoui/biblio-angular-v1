@@ -21,4 +21,7 @@ export class LoginComponent implements OnInit {
 public  set admin(value) {
     this.adminService.admin = value;
 }
+public  validatelogin(){
+    this.adminService.validatelogin();
+}
 }

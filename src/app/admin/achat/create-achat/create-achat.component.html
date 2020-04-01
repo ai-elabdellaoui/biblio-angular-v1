@@ -1,0 +1,83 @@
+
+
+    <div class="card">
+      <div class="card-header">
+        Achat
+      </div>
+      <div class="card-body">
+        <label>reference</label>
+        <input type="text" class="form-control" [(ngModel)]="achat.ref">
+        <label>id</label>
+        <input type="text" class="form-control" [(ngModel)]="achat.id">
+
+        <label>Fournesseur</label>
+        <input type="text" class="form-control" [(ngModel)]="achat.fournisseur.cin">
+        <label>bibliothèque</label>
+        <input type="text" class="form-control" [(ngModel)]="achat.bibliotheque.ref">
+
+
+      </div>
+        <div class="card my-2">
+          <div class="card-header">
+            achat Detail
+          </div>
+          <div class="card-body">
+            Livre
+            <div class="row">
+              <div class="col-md-6">
+                <label>ISBN</label>
+                <input type="text" class="form-control" [(ngModel)]="achatdetail.livre.isbn">
+              </div>
+              <div class="col-md-6">
+                <label>Titre</label>
+                <input type="text" class="form-control" [(ngModel)]="achatdetail.livre.titre">
+              </div>
+              <div class="col-md-6">
+                <label>qte</label>
+                <input type="number" class="form-control" [(ngModel)]="achatdetail.qte">
+              </div>
+              <div class="col-md-6">
+                <label>prixUnitaire</label>
+
+                <input type="number" class="form-control" [(ngModel)]="achatdetail.prixUnitaire">
+              </div>
+            </div>
+          </div>
+          {{achatdetail.prixUnitaire}}
+          <div class="card-footer">
+              <button class="btn btn-info btn-block" (click)="saveAchatDetail()" >Add</button>
+          </div>
+        </div>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Titre</th>
+            <th>ISBN</th>
+            <th>Prix Unitaire</th>
+            <th>Qte</th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let a of achat.achatDetail">
+            <td>{{a.livre.titre}}</td>
+            <td>{{a.livre.isbn}}</td>
+            <td>{{a.prixUnitaire}}</td>
+            <td>{{a.qte}}</td>
+          </tr>
+          </tbody>
+
+        </table>
+
+        Total : {{achat.totale}}
+
+      </div>
+
+
+
+
+      <div class="card-footer">
+        <button class="btn btn-success btn-block" (click)="save()" >save</button>
+      </div>
+
+

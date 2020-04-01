@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Admin} from '../model/admin.model';
 import {HttpClient} from '@angular/common/http';
 import {error} from '@angular/compiler/src/util';
+import {subscribeTo} from 'rxjs/internal-compatibility';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class AdminService {
   private _admin : Admin;
   private _listadmin:Array<Admin>;
   private _createadmin : Admin ;
-  private  url = 'http://localhost:8090/biblio/admin/' ;
+
+  private  url = 'http://localhost:8090/biblio/admin' ;
 
   get createadmin(): Admin {
     return this._admin;
@@ -37,24 +39,44 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   public  save() {
-    console.log('debut');
-    console.log(this._admin);
+    console.log(this.admin);
 
-    this.http.post(this.url + '/', this._admin).subscribe(
+    this.http.post(this.url +'/' , this.admin).subscribe(
       data => {
-        console.log(data);
+        if( data>0){
+          this.listadmin.push(this.cloneAdmin(this.admin));
+          this.admin =null;
+        }
     },
    error => {
         console.log(error);
     }
     );
+
+  }
+  public findAll(){
+    this.http.get<Array<Admin>>(this.url+"/").subscribe(admins=>this.listadmin=admins);
+  }
+  public search(search:string){
+    console.log(search);
+    this.http.get<Admin>(this.url+ '/cin/' +search).subscribe(
+      data=>{
+        if( data == null){
+          this.findAll();
+        }else{
+         return      this._listadmin=this._listadmin.filter( res=>
+            res.cin.toLocaleLowerCase().match(data.cin.toLocaleLowerCase()));
+        }
+
+      },error1 => {
+        console.log(error1);
+      }
+
+    );
   }
 
-  addAdmin () {
-    this.listadmin.push(this.cloneAdmin(this.admin));
-    this._listadmin =null;
-  }
-
+public validatelogin(){
+}
 
   get admin(): Admin {
     if (this._admin == null){
@@ -80,4 +102,7 @@ export class AdminService {
     return clondeAdmin;
 
   }
+
+
+
 }

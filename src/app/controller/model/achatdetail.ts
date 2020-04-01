@@ -1,7 +1,7 @@
 import {Livre} from './livre';
 import {Achat} from './achat';
 
-export class Achatdtail {
+export class Achatdetail {
   public  id: number;
   public prixUnitaire : number;
   public qte :number;
